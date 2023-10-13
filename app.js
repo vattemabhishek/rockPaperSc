@@ -1,7 +1,7 @@
 let userScore = 0;
 let compScore = 0;
 const userScore_span = document.querySelector("#user-score");
-const computerScore_span = document.querySelector("#computer-score");
+const computerScore_span = document.querySelector("#comp-score");
 const scoreboard_div = document.querySelector(".scoreboard");
 const result_div = document.querySelector(".result");
 const rock_div = document.getElementById("rock");
@@ -35,30 +35,31 @@ scissors_div.addEventListener("click", function () {
 function compare(user, comp) {
   if (user === "rock" && comp === "paper") {
     //increase comp score by 1 and print in dom
-    lose();
-    return "paper beats rock. computer wins.";
+   lose();
+   result_div.innerHTML =  "Paper Covers Rock. You Lose.";
+    
   } else if (user === "rock" && comp === "scissors") {
     //increase user score by 1
-    win();
-    return "rock beats scissors. user wins.";
+   win();
+    result_div.innerHTML= "Rock Beats Scissors. You Win.";
   } else if (user === "paper" && comp === "rock") {
     //increase user score by 1
-    win();
-    return "paper beats rock. user wins.";
+   win();
+    result_div.innerHTML= "Paper Covers Rock. You Win.";
   } else if (user === "paper" && comp == "scissors") {
     //increase comp score by 1
     lose();
-    return "scissors beats paper. computer wins.";
+    result_div.innerHTML=  "Scissors Cuts Paper. You Lose.";
   } else if (user === "scissors" && comp === "rock") {
     //increase comp score by 1.
     lose();
-    return "rock beats scissors. computer wins.";
+    result_div.innerHTML=  "Rock Beats Scissors. You Lose.";
   } else if (user === "scissors" && comp === "paper") {
     //increase user score by 1
     win();
-    return "scissors beats paper. user wins.";
+    result_div.innerHTML=  "Scissors Cuts Paper. You Win.";
   } else {
-    return "draw";
+    result_div.innerHTML=  "DRAW";
   }
 }
 function lose(){
